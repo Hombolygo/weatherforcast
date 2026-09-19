@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="WeatherApp.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:WeatherApp"
+    xmlns:view="clr-namespace:WeatherApp.View"
+    Shell.BackgroundColor="{StaticResource SecondaryDarkText}"
+    Shell.TabBarBackgroundColor="{StaticResource SecondaryDarkText}"
+    Shell.FlyoutBehavior="Disabled"
+    Title="WeatherApp">
+
+    <TabBar>
+        <ShellContent Title="Időjárás"
+                      Icon="weather_icon.png"
+                      ContentTemplate="{DataTemplate view:WeatherPage}"/>
+        <ShellContent Title="Előrejelzés"
+            Icon="weather_icon.png"
+            ContentTemplate="{DataTemplate view:WeatherForecastPage}"/>
+    </TabBar>
+
+</Shell>
