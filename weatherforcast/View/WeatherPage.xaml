@@ -9,6 +9,25 @@
                 <Label x:Name="lblCity" FontSize="Title" HorizontalOptions="Center"/>
                 <Label x:Name="lblWeather" FontSize="Large" HorizontalOptions="Center"/>
                 <Image x:Name="WeatherIcon" HeightRequest="100" />
+                <Grid RowDefinitions="*,*,*" RowSpacing="20" ColumnDefinitions="auto,*,auto">
+                    <Border Padding="10" StrokeShape="RoundRectangle 40,0,0,40" StrokeThickness="2"  >
+                        <Label Text="Helyi idő" FontAttributes="Bold"/>
+                        <Border.GestureRecognizers>
+                            <TapGestureRecognizer x:Name="TapLocation" Tapped="TapLocation_Tapped" />
+                        </Border.GestureRecognizers>
+                    </Border>
+                    <Border Padding="10" StrokeShape="RoundRectangle 40,0,0,40" StrokeThickness="2" Grid.Column="3">
+                        <Label Text="Keresés" FontAttributes="Bold"/>
+                        <Border.GestureRecognizers>
+                            <TapGestureRecognizer x:Name="TapSearch" Tapped="TapSearch_Tapped" />
+                        </Border.GestureRecognizers>
+                    </Border>
+                    <Image Grid.Row="1" HeightRequest="30" Source="humid.png" />
+                    <Label Grid.Row="1" x:Name="lblTemp" Grid.Column="1" HorizontalOptions="Center" FontSize="Large" FontAttributes="Bold"/>
+                    <Image Grid.Row="1" Grid.Column="2" HeightRequest="30" Source="wind.png"/>
+                    <Label x:Name="lblHumidity" FontSize="Medium" Grid.Row="2"/>
+                    <Label x:Name="lblWind" FontSize="Medium" Grid.Row="2" Grid.Column="2"/>
+                </Grid>
             </VerticalStackLayout>
         </Grid>
         
