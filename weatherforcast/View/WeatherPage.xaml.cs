@@ -29,15 +29,40 @@ public partial class WeatherPage : ContentPage
         {
             WeatherList.Add(item);
         }
-        lblCity.Text = result.City.Name;
-        lblWeather.Text = result.List[0].Weather[0].Description;
-        lblHumidity.Text = result.List[0].Main.Humidity + " %";
-        lblTemp.Text = result.List[0].Main.Temperature + " °C";
-        lblWind.Text = result.List[0].Wind.Speed;
+        try
+        {
+            lblCity.Text = result.City.Name;
+        } catch { }
+        try
+        {
+            lblWeather.Text = result.List[0].Weather[0].Description;
+        }
+        catch { }
+        try
+        {
+            lblHumidity.Text = result.List[0].Main.Humidity + " %";
+        }
+        catch { }
+        try
+        {
+            lblTemp.Text = result.List[0].Main.Temperature + " °C";
+        }
+        catch { }
+        try
+        {
+            lblWind.Text = result.List[0].Wind.Speed;
+        }
+        catch { }
+        try
+        {
 
-        WeatherIcon.Source = result.List[0].Weather.CustomIcon;
+            WeatherIcon.Source = result.List[0].Weather[0].CustomIcon;
+        }
+        catch { }
+        try
+        {
 
-        double temp = result.List[0].Main.Temperature;
+            double temp = result.List[0].Main.Temperature;
 
         if (temp >= 30 && temp < 40) lblTemp.TextColor = Colors.Red; 
         if (temp >= 20 && temp < 30) lblTemp.TextColor = Colors.Orange;
@@ -45,24 +70,30 @@ public partial class WeatherPage : ContentPage
         if (temp >= 0 && temp < 10) lblTemp.TextColor = Colors.CornflowerBlue;
         if (temp < 0 ) lblTemp.TextColor = Colors.Blue;
 
-        string weather = result.List[0].Weather.CustomIcon;
-
-        switch (weather)
-        {
-            case "icon_01d.png":
-            case "icon_01n.png":
-                bdImg.Source = "misty.jpg";
-                break;
-
-            case "icon_13n.png":
-            case "icon_13d.png":
-                bdImg.Source = "snowy.jpg";
-                break;
-            default:
-                bdImg.Source = "stormy.jpg";
-                break;
-
         }
+        catch { }
+
+        try
+        {
+            string weather = result.List[0].Weather[0].CustomIcon;
+
+            switch (weather)
+            {
+                case "icon_01d.png":
+                case "icon_01n.png":
+                    bdImg.Source = "misty.jpg";
+                    break;
+
+                case "icon_13n.png":
+                case "icon_13d.png":
+                    bdImg.Source = "snowy.jpg";
+                    break;
+                default:
+                    bdImg.Source = "stormy.jpg";
+                    break;
+
+            }
+        } catch { }
 
 
     }
