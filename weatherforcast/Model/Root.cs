@@ -79,7 +79,7 @@ public class Weather
     public string? Main { get; set; }
     public string? Description { get; set; }
     public string? Icon { get; set; }
-    public string CustomIcon => string.Format("icon_{0}", Icon);
+    public string CustomIcon => string.Format("icon_{0}.png", Icon);
 }
 
 public class Wind

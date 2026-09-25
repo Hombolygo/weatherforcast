@@ -5,7 +5,7 @@
     <Grid>
         <Image x:Name="bgImg" Aspect="AspectFill" />
 
-        <Grid BackgroundColor="Black"
+        <Grid BackgroundColor="Gray"
               Opacity="0.7">
 
             <CollectionView x:Name="collectionView"
