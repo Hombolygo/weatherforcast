@@ -4,7 +4,7 @@
              x:Class="WeatherApp.View.WeatherPage">
     <Grid>
         <Image x:Name="bdImg" Aspect="AspectFill" />
-        <Grid BackgroundColor="Black" Opacity=".7" >
+        <Grid BackgroundColor="Gray" Opacity=".7" >
             <VerticalStackLayout Padding="30" Spacing="25">
                 <Label x:Name="lblCity" FontSize="Title" HorizontalOptions="Center"/>
                 <Label x:Name="lblWeather" FontSize="Large" HorizontalOptions="Center"/>
