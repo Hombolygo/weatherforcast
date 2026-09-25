@@ -2,4 +2,51 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="WeatherApp.View.WeatherForecastPage">
+    <Grid>
+        <Image x:Name="bgImg" Aspect="AspectFill" />
+
+        <Grid BackgroundColor="Black"
+              Opacity="0.7">
+
+            <CollectionView x:Name="collectionView"
+                            ItemsLayout="VerticalGrid, 5"
+                            HeightRequest="600"
+                            SelectionMode="None">
+
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+
+                        <Border Stroke="{StaticResource Secondary}"
+                                StrokeShape="RoundRectangle 28"
+                                Padding="4,10">
+
+                            <VerticalStackLayout WidthRequest="80"
+                                                 HeightRequest="85"
+                                                 Spacing="2">
+
+                                <Image Source="{Binding Weather[0].CustomIcon}"
+                                       HeightRequest="40"
+                                       HorizontalOptions="Fill" />
+
+                                <Label Text="{Binding Main.Temperature, StringFormat='{0} °C'}"
+                                       WidthRequest="50"
+                                       FontAttributes="Bold" />
+
+                                <Label Text="{Binding DateTime}"
+                                       FontSize="12"
+                                       FontAttributes="Bold"
+                                       WidthRequest="50" />
+
+                            </VerticalStackLayout>
+
+                        </Border>
+
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+
+            </CollectionView>
+
+        </Grid>
+    </Grid>
+
 </ContentPage>
