@@ -10,9 +10,9 @@ public class ApiService
         var httpClient = new HttpClient();
         var response = await httpClient.GetStringAsync
             (
-                string.Format("https://api.openweathermap.org/data/2.5/weather?q={0}&units=metric&appid=8604f6586c221d18b469b5a0b24d246a", city)
+                string.Format("https://api.openweathermap.org/data/2.5/forecast?q={0}&units=metric&appid=8604f6586c221d18b469b5a0b24d246a", city)
             );
-        var weatherData = JsonSerializer.Deserialize<Root>(response)    ?? throw new Exception("Failed to do it");
+        var weatherData = Newtonsoft.Json.JsonConvert.DeserializeObject<Root>(response);
         return weatherData;
     }
 
@@ -21,9 +21,9 @@ public class ApiService
         var httpClient = new HttpClient();
         var response = await httpClient.GetStringAsync
             (
-                string.Format("https://api.openweathermap.org/data/2.5/weather?lat={0}&lon={1}&units=metric&appid=8604f6586c221d18b469b5a0b24d246a", latitude, longitude)
+                string.Format("https://api.openweathermap.org/data/2.5/forecast?lat={0}&lon={1}&units=metric&appid=8604f6586c221d18b469b5a0b24d246a", latitude, longitude)
             );
-        var weatherData = JsonSerializer.Deserialize<Root>(response)    ?? throw new Exception("Failed to do it");
+        var weatherData = Newtonsoft.Json.JsonConvert.DeserializeObject<Root>(response);
         return weatherData;
     }
 }
